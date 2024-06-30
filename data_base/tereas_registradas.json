@@ -1,0 +1,31 @@
+[
+    {
+        "id_tarea": 1,
+        "descripcion": "hacer la tarea de ingles",
+        "estado": "por hacer",
+        "prioridad": "baja"
+    },
+    {
+        "id_tarea": 2,
+        "descripcion": "hacer un programa para gestionar archivos",
+        "estado": "por hacer",
+        "prioridad": "baja",
+        "subtareas":[
+            {
+                "id_subtarea": 1,
+                "descripcion": "hacer el menu principal",
+                "estado": "por hacer"
+            },
+            {
+                "id_subtarea": 1,
+                "descripcion": "hacer el menu de gestion de archivos",
+                "estado": "por hacer"
+            },
+            {
+                "id_subtarea": 1,
+                "descripcion": "hacer la interfaz",
+                "estado": "por hacer"
+            }
+        ]
+    }
+]
