@@ -119,4 +119,3 @@ def valida_campos(key, valor, datos, opcion=False):
         print("No existe campos")
     return False
                 
-    
