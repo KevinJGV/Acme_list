@@ -1,5 +1,4 @@
 import config
-import funciones
 
 # Aquí va la direccion del archivo
 archivo = "usuario.json"
