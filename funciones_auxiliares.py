@@ -3,8 +3,6 @@ import json
 from dateutil.relativedelta import relativedelta
 import datetime
 import dateutil
-import modulo_consulta
-import modulo_venta
 
 def validar_int(msg, op_menu=False):
     while True:
@@ -109,12 +107,15 @@ def menu_principal(catalogo,registro):
             print("> Bai")
             break
         elif op == 1:
-            if body != 0:
-                modulo_venta.inicio_modulo_compras(catalogo, registro, body=body)
-            else:
-                body = modulo_venta.inicio_modulo_compras(catalogo, registro)
-        elif op == 2:
-            modulo_consulta.inicio_modulo_consultas(registro)
+            if body != 0:                
+                # modulo_venta.inicio_modulo_compras(catalogo, registro, body=body)
+                return
+            else:                
+                # body = modulo_venta.inicio_modulo_compras(catalogo, registro)
+                return
+        elif op == 2:            
+            # modulo_consulta.inicio_modulo_consultas(registro)
+            return
         else:
             msgs("bad_range")
 
