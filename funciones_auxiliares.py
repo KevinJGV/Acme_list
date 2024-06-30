@@ -1,5 +1,3 @@
-import csv
-import json
 from dateutil.relativedelta import relativedelta
 import datetime
 import dateutil
@@ -25,42 +23,6 @@ def validar_alnum(msg):
             msgs("alnum")
         except:
             return prompt
-
-
-def opener_catalogo():
-    file = open("catalogo.csv")
-    DictReader = csv.DictReader(file)
-    return [file,DictReader]
-
-
-def opener_db():
-    try:
-        with open("registro.json", encoding="utf-8") as file:
-            registro = json.load(file)
-            print("Registro de ventas cargado...")
-            return registro
-    except:
-        estructura = {
-                    "usuarios":[],
-                    "pedidos":{
-                        "creado": [],
-                        "preparacion": []
-                    }
-}
-        export_registro(estructura, is_origin_json=True)
-        print("Registro para pedidos de hoy creado...")
-        return estructura
-
-
-def export_registro(db, is_origin_json=False):
-    if is_origin_json:
-        with open("db.json", "w", encoding="utf-8") as file:
-            to_export = json.dumps(db,ensure_ascii=False,indent=4)
-            file.write(to_export)
-    else:
-        with open("db.json", "w", encoding="utf-8") as file:
-            to_export = json.dumps(db,ensure_ascii=False,indent=4)
-            file.write(to_export)
 
 def msgs(op):
     if op == 1:

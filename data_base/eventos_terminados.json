@@ -1,0 +1,16 @@
+[
+    {
+        "id_evento": 1,
+        "fecha": "12/10/2024",
+        "descripcion": "filtro 💀",
+        "estado": "terminado",
+        "prioridad": "baja"
+    },
+    {
+        "id_evento": 2,
+        "fecha": "12/10/2024",
+        "descripcion": "entrevista 💀",
+        "estado": "terminado",
+        "prioridad": "alta"
+    }
+]
