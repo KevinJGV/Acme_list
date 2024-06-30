@@ -1,3 +1,3 @@
-from main import *
-from cruds import *
-from filters import *
+import main
+import cruds
+import filters

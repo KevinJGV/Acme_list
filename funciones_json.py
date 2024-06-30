@@ -1,4 +1,7 @@
 # aqui estan las funciones para extraer y agregar la informacion de los archivos json
+import signin
+import main
+import filters
 import json
 
 # cargar los datos de un archivo json
