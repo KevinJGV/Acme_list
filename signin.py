@@ -1,14 +1,14 @@
 import main
 import cruds
 import filters
-import config
+import funciones_json
 import funciones
 
 # Aquí va la direccion del archivo
 archivo = "usuario.json"
 
 #Guarda los datos de usuarios del JSON para implementar 
-datos = config.cargar_datos(archivo)
+datos = funciones_json.cargar_datos_json(archivo)
 
 
 #Iniciar sesion
