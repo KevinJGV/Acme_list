@@ -1,0 +1,16 @@
+[
+    {
+        "id_evento": 1,
+        "fecha": "12/10/2024",
+        "descripcion": "fiesta de cumpleaños",
+        "estado": "por hacer",
+        "prioridad": "baja"
+    },
+    {
+        "id_evento": 2,
+        "fecha": "10/10/2024",
+        "descripcion": "filtro 💀",
+        "estado": "por hacer",
+        "prioridad": "alta"
+    }
+]
