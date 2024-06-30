@@ -1,6 +1,3 @@
-import usuarios
-import reportes
-import ventas
 import json
 import re
 import copy
@@ -238,30 +235,6 @@ def export_file(data_in_kwargs, name_file,no_kwargs=False):
         nuevo_archivo.write(jsonobject)
 
 
-
-def gestor(op,data_in_kwargs):
-    estructura = ["usuarios","reportes","ventas"]
-    if estructura[op-1] == "usuarios" or estructura[op-1] == "reportes":
-        print(f">>> Gestionar {estructura[op-1]}")
-        data_is_finded = encontrar_en_bdd(
-            data_in_kwargs, estructura[op-1])
-        if data_is_finded != 0:
-            if data_is_finded[0] is not False:
-                data_in_i = data_is_finded[2]
-                pos = data_is_finded[1]
-                logica_gestiones(
-                    estructura[op-1], data_in_kwargs,var_data_is_finded=data_is_finded, var_data_in_i=data_in_i, var_pos=pos)
-            else:
-                reportes_txt("Intento de ingreso a perfil de usuario no creado",data_in_kwargs)
-                input("Usuario sin perfil, inicie modulo de ventas para crear su perfil\n[Enter - Regresar]\n")
-    else:
-        print(">>> Tratador de ventas")
-        data_is_finded = encontrar_en_bdd(
-            data_in_kwargs, estructura[op-1])
-        logica_gestiones(estructura[op-1],data_in_kwargs, var_data_is_finded=data_is_finded)
-
-
-
 def encontrar_en_bdd(data_in_kwargs, estructura, alt=None):
     bdd = data_in_kwargs.get("db")
     if estructura == "usuarios":
@@ -492,68 +465,6 @@ def paginacion(structure_to_print, header, data_in_kwargs):
             if start != 0:
                 start -= pag_size
 
-
-def logica_gestiones(gestion, data_in_kwargs, var_data_is_finded=None, var_data_in_i=None, var_pos=None):
-    if var_data_is_finded != 0:
-        terminal = None
-        if gestion == "usuarios":
-            if var_data_is_finded[0]:
-                while True:
-                    terminal = mostrar_en_terminal(
-                        var_data_in_i, es_paginado=False, config=gestion)
-                    op = int_val("> ", data_in_kwargs,6)
-                    if op == 0:
-                        break
-                    elif op >= 1 and op <= 5:
-                        if op == 1 or op == 2 or op == 3:
-                            res = menu_selector(usuarios.editar_perfil_usuario,una_opcion=True, continuar=True,op=op,data_in_kwargs=data_in_kwargs,pos_user=var_pos, contenido_terminal=terminal, op_externa=op, limitador=3)
-                            if res == 0:
-                                break
-                        elif op == 4:
-                            res = menu_selector(usuarios.editar_categoria,una_opcion=True,continuar=True, op_externa=op, data_in_kwargs=data_in_kwargs,pos_user=var_pos, limitador=4)
-                            if res == 0:
-                                break
-                        elif op == 5:
-                            usuarios.eliminar_usuario(data_in_kwargs,var_pos)
-                            break
-                    else:
-                        reportes_txt("Opcion fuera de rango dentro de logica de gestiones",data_in_kwargs)
-                        input(
-                            "Seleccione una opcion dada\n[Enter - Reintentar]\n")
-            else:
-                reportes_txt("Intento de ingreso a perfil de usuario no creado",data_in_kwargs)
-                input("Usuario sin perfil, inicie modulo de ventas para crear su perfil\n[Enter - Regresar]\n")
-        elif gestion == "reportes":
-            if var_data_is_finded[0]:
-                while True:
-                    mostrar_en_terminal(
-                        var_data_in_i, es_paginado=False, config="reportes")
-                    op_estructura = int_val("> ", data_in_kwargs, 7)
-                    if op_estructura == 0:
-                        break
-                    elif op_estructura >= 1 and op_estructura <= 3:
-                        while True:
-                            mostrar_en_terminal(var_data_in_i,es_paginado=False,config=["s&r&s",op_estructura])
-                            if op_estructura == 1 or op_estructura == 2:
-                                res = menu_selector(reportes.agregar_reporte, reportes.cerrar_reporte, msg_op=8, continuar=True,data_in_kwargs=data_in_kwargs, pos_report=var_pos, op_estructura=op_estructura)
-                                if res == 0:
-                                    break
-                            elif op_estructura == 3:
-                                res = menu_selector(reportes.agregar_reporte, msg_op=9, continuar=True,data_in_kwargs=data_in_kwargs, pos_report=var_pos, op_estructura=op_estructura)
-                                if res == 0:
-                                    break
-                    else:
-                        reportes_txt("Opcion fuera de rango dentro de logica de gestiones",data_in_kwargs)
-                        input(
-                            "Seleccione una opcion dada\n[Enter - Reintentar]\n")
-        else:
-            while True:
-                mostrar_en_terminal(var_data_is_finded["servicios"],es_paginado=False, config="servicios")
-                res = menu_selector(ventas.contratacion_descontratacion,ventas.historial_ventas,msg_op=10,contenido_terminal=True, data_in_kwargs=data_in_kwargs,)
-                if res == 0:
-                    break
-    else:
-        print("> Cancelando...")
 
 def reportes_txt(msg,data_in_kwargs="main.py"):
     '''
