@@ -1,4 +1,5 @@
 import config
+import threading
 
 # Aquí va la direccion del archivo
 archivo = "usuario.json"
@@ -12,7 +13,7 @@ def crear_usuario(user:dict):
 
     try:
 
-        id_usuario = config.generador_id(datos)
+        id_usuario = generador_id(datos)
 
         username = generar_username(user["nombre"], id_usuario)
 
@@ -52,3 +53,21 @@ def generar_username(nombre, id):
   username = iniciales_unidas + str(id)
 
   return username
+
+
+#Generar un nuevo id
+def generador_id(datos):
+
+  lock = threading.Lock()
+
+  with lock:
+    if not datos:
+      id = 1
+
+      return id
+
+    else:
+      anterior_id = datos[-1]
+      nuevoid = anterior_id["id"] + 1
+
+    return nuevoid
