@@ -5,7 +5,7 @@ import json
 # en el parametro de ruta se pone la ruta relativa del archivo json que se quiere leer
 def cargar_datos_json(ruta):
     datos = {}
-    file = open(ruta,"r")
+    file = open(ruta,"r",encoding="utf-8")
     datos = json.load(file)
     return datos
 
@@ -15,7 +15,7 @@ def cargar_datos_json(ruta):
 # al agregar los datos utilizar el mismo contenido del archivo antes de modificar + los cambios que se le alla hecho por medio de na variable
 def guardar_datos_json(datos, ruta):
     datos = list(datos)
-    diccionario = json.dumps(datos, indent=4)
+    diccionario = json.dumps(datos,ensure_ascii=False, indent=4)
     file = open(ruta,"w")
     file.write(diccionario)
     file.close()
@@ -116,11 +116,6 @@ def crea_subtarea(id_tarea, subtarea:dict):
     except Exception as e:
         print(f"Error al crear la subtarea: {e}")
         return "Error al crear la subtarea."
-
-
-#Modifica una subtarea
-def modifica_tarea(id_tarea, id_subtarea, subtarea:dict):
-    print()
 
 
 #Cambia el estado de la tarea / subtarea
