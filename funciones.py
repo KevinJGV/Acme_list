@@ -1,5 +1,5 @@
 import getpass
-import re 
+import re
 
 #Recibe únicamente números, repite cuando no se cumple
 def solo_numeros(mensaje):

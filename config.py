@@ -21,3 +21,21 @@ def guardar_datos(datos:dict, archivo):
         file.close()
     except Exception:
         print("Error durante la ejecución. Revisar el log de errores.")
+
+
+#Generar un nuevo id
+def generador_id(datos):
+
+  lock = threading.Lock()
+
+  with lock:
+    if not datos:
+      id = 1
+
+      return id
+
+    else:
+      anterior_id = datos[-1]
+      nuevoid = anterior_id["id"] + 1
+
+    return nuevoid
