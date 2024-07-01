@@ -3,7 +3,7 @@
         "id_tarea": 1,
         "fecha_limite": "12/10/2024",
         "descripcion": "hacer la tarea de ingles",
-        "estado": "por hacer",
+        "estado": "terminada",
         "prioridad": "baja",
         "subtareas": []
     },
