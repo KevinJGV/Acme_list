@@ -1,33 +1,49 @@
 [
     {
-        "id_tarea": 1,
-        "fecha_limite": "12/10/2024",
+        "id_tarea": 3,
+        "id_usuario": 1,
+        "tiulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "estado": "en curso",
+        "fecha_limite": "12/10/2024",
+        "estado": "por hacer",
         "prioridad": "baja",
-        "subtareas":[]
+        "subtareas": []
     },
     {
-        "id_tarea": 2,
-        "fecha_limite": "12/10/2024",
+        "id_tarea": 4,
+        "id_usuario": 1,
+        "tiulo": "Gestionar archivos",
         "descripcion": "hacer un programa para gestionar archivos",
-        "estado": "en curso",
-        "prioridad": "baja",
-        "subtareas":[
+        "fecha_limite": "12/10/2024",
+        "estado": "por hacer",
+        "prioridad": "alta",
+        "subtareas": [
             {
                 "id_subtarea": 1,
+                "id_usuario": 1,
+                "tiulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
-                "estado": "en curso"
+                "fecha_limite": "12/10/2024",
+                "estado": "por hacer",
+                "prioridad": "media"
             },
             {
                 "id_subtarea": 2,
+                "id_usuario": 1,
+                "tiulo": "Menú Gestionar archivos",
                 "descripcion": "hacer el menu de gestion de archivos",
-                "estado": "en curso"
+                "fecha_limite": "12/10/2024",
+                "estado": "por hacer",
+                "prioridad": "alta"
             },
             {
                 "id_subtarea": 3,
+                "id_usuario": 1,
+                "tiulo": "Interfaz",
                 "descripcion": "hacer la interfaz",
-                "estado": "en curso"
+                "fecha_limite": "12/10/2024",
+                "estado": "por hacer",
+                "prioridad": "baja"
             }
         ]
     }
