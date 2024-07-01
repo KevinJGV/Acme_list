@@ -5,7 +5,7 @@ import funciones_json
 import funciones
 
 # Aquí va la direccion del archivo
-archivo = "usuario.json"
+archivo = "data_base/informacion_usuarios.json"
 
 #Guarda los datos de usuarios del JSON para implementar 
 datos = funciones_json.cargar_datos_json(archivo)
