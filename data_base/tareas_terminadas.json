@@ -1,31 +1,10 @@
 [
     {
         "id_tarea": 1,
+        "fecha_limite": "12/10/2024",
         "descripcion": "hacer la tarea de ingles",
-        "estado": "terminado",
-        "prioridad": "baja"
-    },
-    {
-        "id_tarea": 2,
-        "descripcion": "hacer un programa para gestionar archivos",
-        "estado": "terminado",
+        "estado": "terminada",
         "prioridad": "baja",
-        "subtareas":[
-            {
-                "id_subtarea": 1,
-                "descripcion": "hacer el menu principal",
-                "estado": "terminado"
-            },
-            {
-                "id_subtarea": 1,
-                "descripcion": "hacer el menu de gestion de archivos",
-                "estado": "terminado"
-            },
-            {
-                "id_subtarea": 1,
-                "descripcion": "hacer la interfaz",
-                "estado": "terminado"
-            }
-        ]
+        "subtareas":[]
     }
 ]
