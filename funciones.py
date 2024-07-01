@@ -133,6 +133,11 @@ def generador_id(datos):
 
     else:
       anterior_id = datos[-1]
-      nuevoid = anterior_id["id"] + 1
+      clave_id = next((clave for clave in anterior_id.keys() if clave.startswith("id")), None)
+      if clave_id:
+        id_nuevo = anterior_id[clave_id] + 1
+      else:
+        raise KeyError("Ha existido un error")
 
-    return nuevoid  
+      return id_nuevo  
+    

@@ -1,89 +1,4 @@
-import funciones_json
 import funciones
-
-# Aquí va la direccion de los archivos que se realizan CRUD
-tarea_registro = "data_base/eventos_registrados.json"
-tarea_en_curso = "data_base/eventos_en_curso.json"
-tarea_terminado = "data_base/eventos_terminados.json"
-usuario = "data_base/informacion_usuarios.json"
-
-#Guarda los datos de las tareas JSON  
-datos_regitro = funciones_json.cargar_datos_json(tarea_registro)
-datos_en_curso = funciones_json.cargar_datos_json(tarea_en_curso)
-datos_terminado = funciones_json.cargar_datos_json(tarea_terminado)
-datos_usuario = funciones_json.cargar_datos_json(usuario)
-
-
-#Crea una nueva tarea
-def crea_tarea(id_usuario, tarea:dict):
-    
-    try:
-
-        id_tarea = funciones.generador_id(tarea)
-
-        task_data = {
-            "id_tarea": id_tarea,
-            "id_usuario": id_usuario,
-            **tarea 
-        }
-
-        tarea.append(task_data)
-
-        funciones_json.guardar_datos_json(tarea, datos_regitro)
-
-        return f"Tarea creada con éxito."
-    
-    except Exception as e:
-        print(f"Error al crear la tarea: {e}")
-        return "Error al crear la tarea."
-
-
-#Modifica una tarea
-def modifica_tarea(id_tarea, tarea:dict):
-    print()
-
-
-#Crea una nueva subtarea
-def crea_tarea(id_tarea, subtarea:dict):
-    
-    try:
-
-        tarea = funciones.valida_campos("")
-
-        id_subtarea = funciones.generador_id(subtarea)
-
-        task_data = {
-            "id_subtarea": id_subtarea,
-            "id_tarea": id_tarea,
-            **subtarea 
-        }
-
-        subtarea.append(task_data)
-
-        funciones_json.guardar_datos_json(subtarea, datos_regitro)
-
-        return f"subtarea creada con éxito."
-    
-    except Exception as e:
-        print(f"Error al crear la subtarea: {e}")
-        return "Error al crear la subtarea."
-
-
-#Modifica una subtarea
-def modifica_tarea(id_subtarea, subtarea:dict):
-    print()
-
-
-#Cambia el estado de la tarea / subtarea
-def estado(id, dato:dict, tarea=False):
-    print()
-
-
-import signin
-import main
-import filters
-
-# aqui estan las funciones para extraer y agregar la informacion de los archivos json
 import json
 
 # cargar los datos de un archivo json
@@ -105,6 +20,114 @@ def guardar_datos_json(datos, ruta):
     file.write(diccionario)
     file.close()
 
+# Aquí va la direccion de los archivos que se realizan CRUD
+tarea_registro = "data_base/tareas_registradas.json"
+tarea_en_curso = "data_base/tareas_en_curso.json"
+tarea_terminado = "data_base/tareas_terminadas.json"
+usuario = "data_base/informacion_usuarios.json"
+
+#Guarda los datos de las tareas JSON  
+datos_regitro = cargar_datos_json(tarea_registro)
+datos_en_curso = cargar_datos_json(tarea_en_curso)
+datos_terminado = cargar_datos_json(tarea_terminado)
+datos_usuario = cargar_datos_json(usuario)
+
+
+#Crea una nueva tarea
+def crea_tarea(id_usuario, tarea:dict):
+    
+    try:
+
+        id_tarea = funciones.generador_id(tarea)
+
+        task_data = {
+            "id_tarea": id_tarea,
+            "id_usuario": id_usuario,
+            **tarea 
+        }
+
+        datos_regitro.append(task_data)
+
+        guardar_datos_json(datos_regitro, tarea_registro)
+
+        return f"Tarea creada con éxito."
+    
+    except Exception as e:
+        print(f"Error al crear la tarea: {e}")
+        return "Error al crear la tarea."
+
+
+#Modifica una tarea
+def modifica_tarea(id_tarea, tarea:dict):
+    
+    try:
+
+        indice_registro = funciones.valida_campos("id_tarea", id_tarea, datos_regitro, True)
+        indice_en_curso = funciones.valida_campos("id_tarea", id_tarea, datos_en_curso, True)
+        indice_terminado = funciones.valida_campos("id_tarea", id_tarea, datos_terminado, True)
+
+        if indice_registro is False and indice_en_curso is False and indice_terminado is False:
+            return "Tarea no encontrada."
+        
+
+        if indice_registro is not False:
+
+            datos_regitro[indice_registro] = tarea
+
+        
+        if indice_en_curso is not False:
+
+            datos_en_curso[indice_en_curso] = tarea
+
+
+        if indice_terminado is not False:
+
+            datos_terminado[indice_terminado] = tarea
+
+        return "Tarea modificada con éxito."
+
+    except Exception as e:
+        print(f"Error al modificar la tarea: {e}")
+        return "Error al modificar la tarea."
+
+
+#Crea una nueva subtarea
+def crea_subtarea(id_tarea, subtarea:dict):
+    
+    try:
+
+        tarea = funciones.valida_campos("id_tarea", id_tarea, datos_regitro, True)
+
+        if tarea is False:
+            return "Tarea no encontrada"
+        else:
+
+            id_subtarea = funciones.generador_id(subtarea)
+
+            subtask_data = {
+                "id_subtarea": id_subtarea,
+                **subtarea 
+            }
+
+            subtarea["subtareas"].append(subtask_data)
+
+            return f"subtarea creada con éxito."
+    
+    except Exception as e:
+        print(f"Error al crear la subtarea: {e}")
+        return "Error al crear la subtarea."
+
+
+#Modifica una subtarea
+def modifica_tarea(id_tarea, id_subtarea, subtarea:dict):
+    print()
+
+
+#Cambia el estado de la tarea / subtarea
+def estado(id, dato:dict, tarea=False):
+    print()
+
+
 # esta funcion sirve para indicar si una tarea tiene subtareas o no
 # y si tiene subtareas verificar si estan todas terminadas y poner la tarea en terminada
 def subtareasfinalizadas(tarea):
@@ -121,6 +144,7 @@ def subtareasfinalizadas(tarea):
     else:
         return tarea
 
+
 # sirve para terminar las tareas
 def terminartareas(tareas):
     try:
@@ -136,11 +160,3 @@ def terminartareas(tareas):
             else:
                 tareas[i]["estado"] = "terminada"
     return tareas
-    
-    
-
-tareas_registradas = cargar_datos_json("data_base/tereas_registradas.json")
-
-tareas_registradas = terminartareas(tareas_registradas)
-
-guardar_datos_json(tareas_registradas,"data_base/tereas_registradas.json")
