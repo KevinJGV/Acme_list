@@ -1,6 +1,6 @@
-from signin import *
-from main import *
-from filters import *
+import signin
+import main
+import filters
 
 # aqui estan las funciones para extraer y agregar la informacion de los archivos json
 import json
