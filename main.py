@@ -118,8 +118,6 @@ def op_menu_central():
             print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "║"+ Fore.WHITE +"                  ADIOS!              "+ Fore.CYAN +"║"))
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
             break
-        if op == 1:
-            print("hola")
         if op == 2:
             titulo=funciones.solo_texto("                                                    Titulo:")
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
