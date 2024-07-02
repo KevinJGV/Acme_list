@@ -149,11 +149,15 @@ def unico_nombre(mensaje, datos):
 
 # Valida campos
 def valida_campos(key, valor, datos, opcion=False):
-
+    
     if opcion is False:
-        for campo in datos:
-            if campo[key] == valor:
+        if isinstance(datos, list) or isinstance(datos, dict) or isinstance(datos, set):
+            if datos[key] == valor:
                 return True
+        else:
+            for campo in datos:
+                if campo[key] == valor:
+                    return True
     else:
         for campo in datos:
             if campo[key] == valor:
