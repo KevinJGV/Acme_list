@@ -1,19 +1,18 @@
-from datetime import datetime
-import cruds
-import textwrap
-
-def imprimir_tabla_diccionario_lista(lista_diccionarios):
+# Imprime en pantalla las tareas que esten contenidas en la estructura json  diseñada para el programa, se puede usar facilmente con, por ejemplo, cruds.datos_registro
+def imprimir_tabla_diccionario_lista(json_a_visualizar):
     # Obtener encabezados (claves únicas) de la lista de diccionarios
     encabezados = set()
-    for diccionario in lista_diccionarios:
+    for diccionario in json_a_visualizar:
         encabezados.update(diccionario.keys())
         if "subtareas" in diccionario:
             for subtarea in diccionario["subtareas"]:
                 encabezados.update(subtarea.keys())
 
     # Filtrar encabezados en el orden deseado
-    desired_column_order = ["id_tarea", "titulo", "descripcion", "estado", "prioridad", "fecha_limite", "subtareas"]
-    encabezados_filtrados = [h for h in desired_column_order if h in encabezados]
+    desired_column_order = ["id_tarea", "titulo", "descripcion",
+                            "estado", "prioridad", "fecha_limite", "subtareas"]
+    encabezados_filtrados = [
+        h for h in desired_column_order if h in encabezados]
 
     # Diccionario para reemplazar nombres de columnas
     header_replacements = {
@@ -31,17 +30,30 @@ def imprimir_tabla_diccionario_lista(lista_diccionarios):
     for encabezado in encabezados_filtrados:
         ancho_maximo_clave = 0
         ancho_maximo_valor = 0
-        for diccionario in lista_diccionarios:
+
+        for diccionario in json_a_visualizar:
             if encabezado in diccionario and encabezado != "subtareas":
                 valor = str(diccionario[encabezado])
                 ancho_maximo_clave = max(ancho_maximo_clave, len(encabezado))
                 ancho_maximo_valor = max(ancho_maximo_valor, len(valor))
 
-            else:
-                ancho_maximo_clave = len(encabezado)
-                ancho_maximo_valor = len(diccionario['subtareas'])
+            elif encabezado == "subtareas":
+                # No se procesa la clave "subtareas" si no existe en las subtareas
+                if "subtareas" in diccionario:
+                    ancho_maximo_clave = max(ancho_maximo_clave, len(encabezado))
+
+                    for subtarea in diccionario["subtareas"]:
+                        ancho_maximo_subtarea = 0
+                        for atributo in subtarea:
+                            valor_subtarea = str(subtarea[atributo])
+                            ancho_maximo_subtarea = max(ancho_maximo_subtarea, len(valor_subtarea))
+
+                        ancho_maximo_valor = max(ancho_maximo_valor, ancho_maximo_subtarea)
 
         anchos_maximos[encabezado] = max(ancho_maximo_clave, ancho_maximo_valor)
+
+    # Asignar ancho máximo del encabezado a la columna "subtareas"
+    anchos_maximos["subtareas"] = 9
 
     # Generar estructura de la tabla
     tabla_formateada = ""
@@ -49,8 +61,10 @@ def imprimir_tabla_diccionario_lista(lista_diccionarios):
     # Línea superior con encabezados centrados
     linea_encabezados = ""
     for encabezado, ancho_maximo in anchos_maximos.items():
-        linea_encabezados += f"| {header_replacements.get(encabezado, encabezado):^{ancho_maximo}} |"
+        linea_encabezados += f"| {header_replacements.get(
+            encabezado, encabezado):^{ancho_maximo}} |"
     longitud_tabla = len(linea_encabezados)
+    linea_encabezados = f"{'-' * (int(longitud_tabla))}\n" + linea_encabezados
     tabla_formateada += linea_encabezados + "\n"
 
     # Línea divisoria
@@ -58,17 +72,21 @@ def imprimir_tabla_diccionario_lista(lista_diccionarios):
     tabla_formateada += linea_divisoria + "\n"
 
     # Líneas para cada fila del diccionario
-    subtareas = ""
-    for diccionario in lista_diccionarios:
+    for diccionario in json_a_visualizar:
         linea_fila = ""
+        subtareas = ""
         for encabezado in encabezados_filtrados:
             valor = ""
             if encabezado in diccionario:
-                if encabezado != "subtareas":
+                if encabezado == "estado":
+                    valor = str(diccionario[encabezado]).capitalize()
+                elif encabezado == "prioridad":
+                    valor = str(diccionario[encabezado]).upper()
+                elif encabezado != "subtareas":
                     valor = str(diccionario[encabezado])
                 else:
+                    # Utilizar la función procesar_subtareas sin recursividad
                     valor = str(len(diccionario[encabezado]))
-                    # Verificar longitud de subtareas
                     if len(diccionario["subtareas"]) > 0:
                         # Formatear texto de la línea divisoria
                         linea_divisoria_subtareas = f"| {'SUBTAREAS':^{longitud_tabla - 4}} |"
@@ -76,71 +94,43 @@ def imprimir_tabla_diccionario_lista(lista_diccionarios):
                         # Agregar línea divisoria a la tabla formateada
                         subtareas += linea_divisoria_subtareas + "\n"
 
-                        # Recorrer y mostrar subtareas
-                        for subtarea in diccionario["subtareas"]:
-                            # Formatear información de la subtarea
-                            info_subtarea = f"{subtarea.get('id_subtarea', '')}"
-
-                            # Ajustar el ancho del texto
-                            info_subtarea_ajustada = textwrap.fill(info_subtarea, width=anchos_maximos[encabezado] - 2)
-
-                            # Crear la línea de la subtarea
-                            linea_subtarea = f"| {info_subtarea_ajustada:<{anchos_maximos[encabezado]}} |"
-
-                            # Agregar línea de la subtarea a la tabla formateada
-                            subtareas += linea_subtarea + "\n"
+                        subtareas += procesar_subtareas(
+                            diccionario["subtareas"], anchos_maximos)
 
             linea_fila += f"| {valor:<{anchos_maximos[encabezado]}} |"
+
         tabla_formateada += linea_fila + "\n"
+
         if subtareas != "":
-            tabla_formateada += subtareas + "\n"
-            subtareas = ""
+            tabla_formateada += subtareas
+            linea_divisoria = f"|{'-' * (int(longitud_tabla)-2)}|"
+            tabla_formateada += linea_divisoria + "\n"
 
-
+    linea_pie = f"{'-' * (int(longitud_tabla))}\n"        
+    tabla_formateada += linea_pie
+        
     # Imprimir la tabla
     print(tabla_formateada)
 
-# Ejemplo de uso
-lista_diccionarios = [
-    {
-        "id_tarea": 1,
-        "id_usuario": 1,
-        "titulo": "Tarea Inglés muy larga",
-        "descripcion": "hacer la tarea de ingles, una descripción muy extensa",
-        "fecha_limite": "07/07/2024",
-        "estado": "por hacer",
-        "prioridad": "baja",
-        "subtareas": []
-    },
-    {
-        "id_tarea": 2,
-        "id_usuario": 1,
-        "titulo": "Gestionar archivos",
-        "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/10/2024",
-        "estado": "por hacer",
-        "prioridad": "alta",
-        "subtareas": [
-            {
-                "id_subtarea": 1,
-                "id_usuario": 1,
-                "tiulo": "Menú Principal",
-                "descripcion": "hacer el menu principal",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "media"
-            },
-            {
-                "id_subtarea": 2,
-                "id_usuario": 1,
-                "tiulo": "Menú Gestionar archivos",
-                "descripcion": "hacer el menu de gestion de archivos",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "alta"
-            }
-        ]
-    }
-]
 
-imprimir_tabla_diccionario_lista(lista_diccionarios)
+# Funcion auxiliar de imprimir_tabla_diccionario_lista() que realiza el proceso de estructuracion para el print final
+def procesar_subtareas(subtareas, anchos_maximos):
+    encabezados = ['id_subtarea', 'titulo', 'descripcion', 'estado', 'prioridad', 'fecha_limite']
+    subtareas_formateadas = ""
+    for subtarea in subtareas:
+        linea_subtarea = ""
+        for encabezado in encabezados:
+            if encabezado == "estado":
+                valor_subtarea = str(subtarea[encabezado]).capitalize()
+            elif encabezado == "prioridad":
+                valor_subtarea = str(subtarea[encabezado]).upper()
+            else:
+                valor_subtarea = str(subtarea[encabezado])
+            if encabezado == "id_subtarea":
+                linea_subtarea += f"| {valor_subtarea:<{anchos_maximos["id_tarea"]}} |"
+            else:
+                linea_subtarea += f"| {valor_subtarea:<{anchos_maximos[encabezado]}} |"
+
+        subtareas_formateadas += linea_subtarea + "\n"
+    return subtareas_formateadas
+
