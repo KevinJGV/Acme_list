@@ -16,21 +16,21 @@ def cargar_datos_json(ruta):
 def guardar_datos_json(datos, ruta):
     datos = list(datos)
     diccionario = json.dumps(datos,ensure_ascii=True, indent=4)
-    file = open(ruta,"w")
+    file = open(ruta,"w", encoding="utf-8")
     file.write(diccionario)
     file.close()
 
 # Aquí va la direccion de los archivos que se realizan CRUD
-tarea_registro = "data_base/tareas_registradas.json"
-tarea_en_curso = "data_base/tareas_en_curso.json"
-tarea_terminado = "data_base/tareas_terminadas.json"
-tarea_cancelado = "data_base/tarea_canceladas.json"
+tareas_registradas = "data_base/tareas_registradas.json"
+tareas_en_curso = "data_base/tareas_en_curso.json"
+tareas_terminadas = "data_base/tareas_terminadas.json"
+tareas_canceladas = "data_base/tareas_canceladas.json"
 
 #Guarda los datos de las tareas JSON  
-datos_registro = cargar_datos_json(tarea_registro)
-datos_en_curso = cargar_datos_json(tarea_en_curso)
-datos_terminado = cargar_datos_json(tarea_terminado)
-datos_cancelado = cargar_datos_json(tarea_cancelado)
+datos_registro = cargar_datos_json(tareas_registradas)
+datos_en_curso = cargar_datos_json(tareas_en_curso)
+datos_terminado = cargar_datos_json(tareas_terminadas)
+datos_cancelado = cargar_datos_json(tareas_canceladas)
 
 
 #Crea una nueva tarea
@@ -48,7 +48,7 @@ def crea_tarea(id_usuario, tarea:dict):
 
         datos_registro.append(task_data)
 
-        guardar_datos_json(datos_registro, tarea_registro)
+        guardar_datos_json(datos_registro, tareas_registradas)
 
         return f"Tarea creada con éxito."
     
@@ -103,25 +103,25 @@ def modifica_tarea(id_tarea, tarea:dict):
         
             datos_registro[indice] = tarea
 
-            guardar_datos_json(datos_registro, tarea_registro)
+            guardar_datos_json(datos_registro, tareas_registradas)
 
         if indice["estado"] == "en curso":
 
             datos_en_curso[indice] = tarea
 
-            guardar_datos_json(datos_en_curso, tarea_en_curso)
+            guardar_datos_json(datos_en_curso, tareas_en_curso)
 
         if indice["estado"] == "terminado":
 
             datos_terminado[indice] = tarea
 
-            guardar_datos_json(datos_terminado, tarea_terminado)
+            guardar_datos_json(datos_terminado, tareas_terminadas)
 
         if indice["estado"] == "cancelado":
 
             datos_cancelado[indice] = tarea
 
-            guardar_datos_json(datos_cancelado, tarea_cancelado)
+            guardar_datos_json(datos_cancelado, tareas_canceladas)
             
 
         return "Tarea modificada con éxito."
@@ -183,7 +183,7 @@ def crea_subtarea(id_tarea, subtarea:dict):
 
             datos_registro[tarea] = tarea
 
-            guardar_datos_json(datos_registro, tarea_registro)
+            guardar_datos_json(datos_registro, tareas_registradas)
 
             return f"subtarea creada con éxito."
     
@@ -224,51 +224,51 @@ def lista_subtareas(id_tarea):
     
 
 #Modifica una subtarea
-def modifica_tarea(id_tarea, id_subtarea, subtarea:dict):
+# def modifica_tarea(id_tarea, id_subtarea, subtarea:dict):
 
-    try:
+#     try:
 
-        indice_tarea = traer_tarea(id_tarea)
+#         indice_tarea = traer_tarea(id_tarea)
 
-        if indice_tarea is False:
-            return "No existe Tarea" 
+#         if indice_tarea is False:
+#             return "No existe Tarea" 
 
-        indice_subtarea = trae_subtarea(id_tarea, id_subtarea)
+#         indice_subtarea = trae_subtarea(id_tarea, id_subtarea)
 
-        if indice_subtarea is False:
-            return "No existe la subtarea"
-
-
-        if indice_tarea["estado"] == "por hacer":
-
-            datos_registro[indice_tarea]["subtareas"][indice_subtarea] = subtarea
-
-            guardar_datos_json(datos_registro, tarea_registro)
+#         if indice_subtarea is False:
+#             return "No existe la subtarea"
 
 
-        if indice_tarea["estado"] == "en curso":
+#         if indice_tarea["estado"] == "por hacer":
 
-            datos_en_curso[indice_tarea]["subtareas"][indice_subtarea] = subtarea
+#             datos_registro[indice_tarea]["subtareas"][indice_subtarea] = subtarea
 
-            guardar_datos_json(datos_en_curso, tarea_en_curso)
+#             guardar_datos_json(datos_registro, tareas_registradas)
 
-        if indice_tarea["estado"] == "terminado":
 
-            datos_terminado[indice_tarea]["subtareas"][indice_subtarea] = subtarea
+#         if indice_tarea["estado"] == "en curso":
 
-            guardar_datos_json(datos_terminado, tarea_terminado)
+#             datos_en_curso[indice_tarea]["subtareas"][indice_subtarea] = subtarea
 
-        if indice_tarea["estado"] == "cancelado":
+#             guardar_datos_json(datos_en_curso, tareas_en_curso)
 
-            datos_cancelado[indice_tarea]["subtareas"][indice_subtarea] = subtarea
+#         if indice_tarea["estado"] == "terminado":
 
-            guardar_datos_json(datos_cancelado, tarea_cancelado)
+#             datos_terminado[indice_tarea]["subtareas"][indice_subtarea] = subtarea
 
-        return "Subtarea modificada con éxito."
+#             guardar_datos_json(datos_terminado, tareas_terminadas)
 
-    except Exception as e:
-        print(f"Error al modificar la subtarea: {e}")
-        return "Error al modificar la subtarea."
+#         if indice_tarea["estado"] == "cancelado":
+
+#             datos_cancelado[indice_tarea]["subtareas"][indice_subtarea] = subtarea
+
+#             guardar_datos_json(datos_cancelado, tareas_canceladas)
+
+#         return "Subtarea modificada con éxito."
+
+#     except Exception as e:
+#         print(f"Error al modificar la subtarea: {e}")
+#         return "Error al modificar la subtarea."
 
 
 #Cambia el estado de la tarea | subtarea
@@ -295,7 +295,7 @@ def estado(id_tarea, estado, tarea = True, id_subtarea = 0):
                 del datos_registro[indice_tarea]
 
                 datos_registro.append(indice_tarea)
-                guardar_datos_json(datos_registro, tarea_registro)
+                guardar_datos_json(datos_registro, tareas_registradas)
 
             if  estado == "en curso":
 
@@ -307,7 +307,7 @@ def estado(id_tarea, estado, tarea = True, id_subtarea = 0):
                 del datos_en_curso[indice_tarea]
 
                 datos_en_curso.append(indice_tarea)
-                guardar_datos_json(datos_en_curso, tarea_en_curso)
+                guardar_datos_json(datos_en_curso, tareas_en_curso)
 
             if  estado == "terminado":
 
@@ -319,7 +319,7 @@ def estado(id_tarea, estado, tarea = True, id_subtarea = 0):
                 del datos_terminado[indice_tarea]
 
                 datos_terminado.append(indice_tarea)
-                guardar_datos_json(datos_terminado, tarea_terminado)
+                guardar_datos_json(datos_terminado, tareas_terminadas)
 
             if  estado == "cancelado":
 
@@ -331,7 +331,7 @@ def estado(id_tarea, estado, tarea = True, id_subtarea = 0):
                 del datos_cancelado[indice_tarea]
 
                 datos_cancelado.append(indice_tarea)
-                guardar_datos_json(datos_cancelado, tarea_cancelado)
+                guardar_datos_json(datos_cancelado, tareas_canceladas)
 
             return "Estado de Tarea exitoso"
 
@@ -350,25 +350,25 @@ def estado(id_tarea, estado, tarea = True, id_subtarea = 0):
 
                     datos_registro[indice_tarea]["subtareas"][indice_subtarea]["estado"] = estado
 
-                    guardar_datos_json(datos_registro, tarea_registro)
+                    guardar_datos_json(datos_registro, tareas_registradas)
 
                 if indice_tarea["estado"] == "en curso":
 
                     datos_en_curso[indice_tarea]["subtareas"][indice_subtarea]["estado"] = estado
 
-                    guardar_datos_json(datos_en_curso, tarea_en_curso)
+                    guardar_datos_json(datos_en_curso, tareas_en_curso)
                 
                 if indice_tarea["estado"] == "terminado":
 
                     datos_terminado[indice_tarea]["subtareas"][indice_subtarea]["estado"] = estado
 
-                    guardar_datos_json(datos_terminado, tarea_terminado)
+                    guardar_datos_json(datos_terminado, tareas_terminadas)
 
                 if indice_tarea["estado"] == "cancelado":
 
                     datos_cancelado[indice_tarea]["subtareas"][indice_subtarea]["estado"] = estado
 
-                    guardar_datos_json(datos_cancelado, tarea_cancelado)
+                    guardar_datos_json(datos_cancelado, tareas_canceladas)
 
                 return "Estado de Subtarea exitoso"
         

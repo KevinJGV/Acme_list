@@ -5,7 +5,6 @@ import filters
 import funciones
 import os
 from colorama import init, Fore, Back, Style
-from termcolor import colored
 
 usuario = "data_base/informacion_usuarios.json"
 tareas_por_hacer = "data_base/tareas_registradas.json"
