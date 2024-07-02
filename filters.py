@@ -5,12 +5,12 @@ import funciones
 tarea_registro = "data_base/tareas_registradas.json"
 tarea_en_curso = "data_base/tareas_en_curso.json"
 tarea_terminado = "data_base/tareas_terminadas.json"
-usuario = "data_base/informacion_usuarios.json"
+tarea_cancelado = "data_base/tareas_canceladas.json"
 
 datos_registro = cruds.cargar_datos_json(tarea_registro)
 datos_en_curso = cruds.cargar_datos_json(tarea_en_curso)
 datos_terminado = cruds.cargar_datos_json(tarea_terminado)
-datos_usuario = cruds.cargar_datos_json(usuario)
+datos_cancelado = cruds.cargar_datos_json(tarea_cancelado)
 
 # muestra las tareas que no se han terminado
 def tareaspendientes(tareas):

@@ -1,14 +1,23 @@
 [
     {
-        "id": "1",
+        "id": 1,
+        "usuario": "javier1",
         "correo": "javieracevedo@gmail.com",
-        "contraseña": "1234",
+        "contraseña": "123456789aA",
         "nombre": "javier"
     },
     {
-        "id": "2",
+        "id": 2,
+        "usuario": "alvaro2",
         "correo": "alvaro@gmail.com",
         "contraseña": "5678",
         "nombre": "alvaro"
+    },
+    {
+        "id": 3,
+        "usuario": "ma3",
+        "correo": "mario@gmail.com",
+        "contraseña": "1234567890aA",
+        "nombre": "mario"
     }
 ]

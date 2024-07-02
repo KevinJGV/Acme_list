@@ -1,5 +1,10 @@
 import json
 import threading
+import os
+from colorama import init, Fore, Back, Style
+
+# Inicializar colorama
+init(autoreset=True)
 
 #Cargar los datos del archivo JSON a un Dict
 def cargar_datos(archivo):
@@ -9,7 +14,10 @@ def cargar_datos(archivo):
             datos=json.load(file)
         return datos
     except Exception:
-        print("Error durante la ejecución. Revisar el log de errores.")
+        print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+        print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           Error durante la ejecución. Revisar el log de errores.          "+ Fore.CYAN +"║"))
+        print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+        #print("Error durante la ejecución. Revisar el log de errores.")
         
         
 #Guardar los nuevos datos del al archivo JSON
@@ -20,6 +28,9 @@ def guardar_datos(datos:dict, archivo):
         file.write(diccionario)
         file.close()
     except Exception:
+        print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+        print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           Error durante la ejecución. Revisar el log de errores.          "+ Fore.CYAN +"║"))
+        print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
         print("Error durante la ejecución. Revisar el log de errores.")
 
 
