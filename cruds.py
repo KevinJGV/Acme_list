@@ -27,7 +27,7 @@ tarea_terminado = "data_base/tareas_terminadas.json"
 usuario = "data_base/informacion_usuarios.json"
 
 #Guarda los datos de las tareas JSON  
-datos_regitro = cargar_datos_json(tarea_registro)
+datos_registro = cargar_datos_json(tarea_registro)
 datos_en_curso = cargar_datos_json(tarea_en_curso)
 datos_terminado = cargar_datos_json(tarea_terminado)
 datos_usuario = cargar_datos_json(usuario)
@@ -46,7 +46,7 @@ def crea_tarea(id_usuario, tarea:dict):
             **tarea 
         }
 
-        datos_regitro.append(task_data)
+        datos_registro.append(task_data)
 
         guardar_datos_json(datos_regitro, tarea_registro)
 
@@ -62,7 +62,7 @@ def modifica_tarea(id_tarea, tarea:dict):
     
     try:
 
-        indice_registro = funciones.valida_campos("id_tarea", id_tarea, datos_regitro, True)
+        indice_registro = funciones.valida_campos("id_tarea", id_tarea, datos_registro, True)
         indice_en_curso = funciones.valida_campos("id_tarea", id_tarea, datos_en_curso, True)
         indice_terminado = funciones.valida_campos("id_tarea", id_tarea, datos_terminado, True)
 
@@ -72,7 +72,7 @@ def modifica_tarea(id_tarea, tarea:dict):
 
         if indice_registro is not False:
 
-            datos_regitro[indice_registro] = tarea
+            datos_registro[indice_registro] = tarea
 
         
         if indice_en_curso is not False:
@@ -96,7 +96,7 @@ def crea_subtarea(id_tarea, subtarea:dict):
     
     try:
 
-        tarea = funciones.valida_campos("id_tarea", id_tarea, datos_regitro, True)
+        tarea = funciones.valida_campos("id_tarea", id_tarea, datos_registro, True)
 
         if tarea is False:
             return "Tarea no encontrada"
@@ -120,7 +120,36 @@ def crea_subtarea(id_tarea, subtarea:dict):
 
 #Modifica una subtarea
 def modifica_tarea(id_tarea, id_subtarea, subtarea:dict):
-    print()
+    try:
+        
+        indice_tarea_registro = funciones.valida_campos("id_tarea", id_tarea, datos_registro, True)
+        indice_tarea_en_curso = funciones.valida_campos("id_tarea", id_tarea, datos_en_curso, True)
+        indice_tarea_terminado = funciones.valida_campos("id_tarea", id_tarea, datos_terminado, True)
+
+        if indice_tarea_registro is False and indice_tarea_en_curso is False and indice_tarea_terminado is False:
+            return "Tarea no encontrada."
+
+        if indice_tarea_registro is not False:
+            indice_subtarea = funciones.valida_campos("id_subtarea", id_subtarea, datos_registro[indice_tarea_registro]["subtareas"], True)
+
+            datos_registro[indice_tarea_registro]["subtareas"][indice_subtarea] = subtarea
+
+        if indice_tarea_en_curso is not False:
+            indice_subtarea = funciones.valida_campos("id_subtarea", id_subtarea, datos_registro[indice_tarea_en_curso]["subtareas"], True)
+
+            datos_en_curso[indice_tarea_en_curso]["subtareas"][indice_subtarea] = subtarea
+
+
+        if indice_tarea_terminado is False:
+            indice_subtarea = funciones.valida_campos("id_subtarea", id_subtarea, datos_registro[indice_tarea_terminado]["subtareas"], True)
+
+            datos_terminado[indice_tarea_terminado]["subtareas"][indice_subtarea] = subtarea
+        
+        return "Subtarea modificada con éxito."
+
+    except Exception as e:
+        print(f"Error al modificar la subtarea: {e}")
+        return "Error al modificar la subtarea."
 
 
 #Cambia el estado de la tarea / subtarea
