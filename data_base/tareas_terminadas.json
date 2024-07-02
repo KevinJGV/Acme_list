@@ -5,7 +5,7 @@
         "titulo": "Gestionar archivos",
         "descripcion": "hacer un programa para gestionar archivos",
         "fecha_limite": "12/06/2024",
-        "estado": "terminada",
+        "estado": "terminado",
         "prioridad": "alta",
         "subtareas": [
             {
@@ -14,7 +14,7 @@
                 "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "05/06/2024",
-                "estado": "terminada",
+                "estado": "terminado",
                 "prioridad": "media"
             },
             {
@@ -23,7 +23,7 @@
                 "titulo": "Menú crud archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "06/06/2024",
-                "estado": "terminada",
+                "estado": "terminado",
                 "prioridad": "alta"
             },
             {

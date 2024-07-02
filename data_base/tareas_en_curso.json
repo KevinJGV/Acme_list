@@ -44,7 +44,7 @@
                 "titulo": "Reels pendientes",
                 "descripcion": "robar contenido ajeno",
                 "fecha_limite": "12/10/2024",
-                "estado": "terminada",
+                "estado": "terminado",
                 "prioridad": "media"
             }
         ]

@@ -15,7 +15,7 @@
         "titulo": "Gestionar archivos",
         "descripcion": "hacer un programa para gestionar archivos",
         "fecha_limite": "12/06/2024",
-        "estado": "terminada",
+        "estado": "terminado",
         "prioridad": "alta",
         "subtareas": [
             {
@@ -24,7 +24,7 @@
                 "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "05/06/2024",
-                "estado": "terminada",
+                "estado": "terminado",
                 "prioridad": "media"
             },
             {
@@ -33,7 +33,7 @@
                 "titulo": "Menú crud archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "06/06/2024",
-                "estado": "terminada",
+                "estado": "terminado",
                 "prioridad": "alta"
             },
             {
@@ -73,7 +73,7 @@
         "titulo": "Gestionar archivos (otro)",
         "descripcion": "otro programa para gestionar archivos",
         "fecha_limite": "09/11/2024",
-        "estado": "cancelada",
+        "estado": "cancelado",
         "prioridad": "alta",
         "subtareas": [
             {
@@ -82,7 +82,7 @@
                 "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "01/11/2024",
-                "estado": "cancelada",
+                "estado": "cancelado",
                 "prioridad": "media"
             },
             {
@@ -91,7 +91,7 @@
                 "titulo": "Menú crud a archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "05/11/2024",
-                "estado": "cancelada",
+                "estado": "cancelado",
                 "prioridad": "alta"
             }
         ]
@@ -102,7 +102,7 @@
         "titulo": "Tarea de ser",
         "descripcion": "hacer la tarea que no me gusta",
         "fecha_limite": "22/05/2024",
-        "estado": "cancelada",
+        "estado": "cancelado",
         "prioridad": "baja",
         "subtareas": []
     },
@@ -121,7 +121,7 @@
                 "titulo": "Reels pendientes",
                 "descripcion": "robar contenido ajeno",
                 "fecha_limite": "12/10/2024",
-                "estado": "terminada",
+                "estado": "terminado",
                 "prioridad": "media"
             }
         ]
