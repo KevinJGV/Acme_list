@@ -59,13 +59,16 @@ def prioridadtareas(tareas):
 
 # muestra las tareas que se tienen fecha limite cercana dentro de 7 dias en adelante
 def tareascercanas(tareas):
-    for i in tareas:
-        if i["fecha_limite"]:
-            fecha_limite = datetime.strptime(i["fecha_limite"], "%d/%m/%Y")
-            fecha_actual = datetime.now()
-            diferencia = fecha_limite - fecha_actual
-            if -1 <= diferencia.days <= 6:
-                funciones.imprimir_tabla_diccionario_lista([i])
+    try:
+        for i in tareas:
+            if i["fecha_limite"]:
+                fecha_limite = datetime.strptime(i["fecha_limite"], "%d/%m/%Y")
+                fecha_actual = datetime.now()
+                diferencia = fecha_limite - fecha_actual
+                if -1 <= diferencia.days <= 6:
+                    funciones.imprimir_tabla_diccionario_lista([i])
+    except Exception:
+        print()
 
 # esta es la funcion del menu de filtros
 def menufiltros():

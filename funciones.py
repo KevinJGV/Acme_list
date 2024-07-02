@@ -298,8 +298,7 @@ def imprimir_tabla_diccionario_lista(json_a_visualizar):
     linea_encabezados = ""
     for encabezado, ancho_maximo in anchos_maximos.items():
         if json_tamaño != 0:
-            linea_encabezados += f"| {header_replacements.get(
-                encabezado, encabezado):^{ancho_maximo}} |"
+            linea_encabezados += f"| {header_replacements.get(encabezado, encabezado):^{ancho_maximo}} |"
         else:
             linea_encabezados += f"| ID | TITULO | DESCRIPCIÓN | ESTADO | PRIORIDAD | FECHA LIMITE | SUBTAREAS |"
     longitud_tabla = len(linea_encabezados)
@@ -329,8 +328,7 @@ def imprimir_tabla_diccionario_lista(json_a_visualizar):
                         valor = str(len(diccionario[encabezado]))
                         if len(diccionario["subtareas"]) > 0:
                             # Formatear texto de la línea divisoria
-                            linea_taras_vacias = f"| {
-                                'SUBTAREAS':^{longitud_tabla - 4}} |"
+                            linea_taras_vacias = f"| {'SUBTAREAS':^{longitud_tabla - 4}} |"
 
                             # Agregar línea divisoria a la tabla formateada
                             subtareas += linea_taras_vacias + "\n"
@@ -347,8 +345,7 @@ def imprimir_tabla_diccionario_lista(json_a_visualizar):
                 linea_divisoria = f"|{'-' * (int(longitud_tabla)-2)}|"
                 tabla_formateada += linea_divisoria + "\n"
     else:
-        linea_taras_vacias = f"| {
-            'SIN TAREAS REGISTRADAS ACTUALMENTE ;)':^{longitud_tabla - 4}} |"
+        linea_taras_vacias = f"| {'SIN TAREAS REGISTRADAS ACTUALMENTE ;)':^{longitud_tabla - 4}} |"
         tabla_formateada += linea_taras_vacias + "\n"
     linea_pie = f"{'-' * (int(longitud_tabla))}\n"
     tabla_formateada += linea_pie
@@ -373,11 +370,9 @@ def procesar_subtareas(subtareas, anchos_maximos):
             else:
                 valor_subtarea = str(subtarea[encabezado])
             if encabezado == "id_subtarea":
-                linea_subtarea += f"| {valor_subtarea:<{
-                    anchos_maximos['id_tarea']}} |"
+                linea_subtarea += f"| {valor_subtarea:<{anchos_maximos['id_tarea']}} |"
             else:
-                linea_subtarea += f"| {valor_subtarea:<{
-                    anchos_maximos[encabezado]}} |"
+                linea_subtarea += f"| {valor_subtarea:<{anchos_maximos[encabezado]}} |"
 
         subtareas_formateadas += linea_subtarea + "\n"
     return subtareas_formateadas
@@ -402,4 +397,4 @@ def obtener_fecha(mensaje):
             fecha_final = datetime.datetime.strftime(fecha, "%d-%m-%Y")
             return fecha_final
         except ValueError:
-            print("Formato de fecha no válido. Ingrese la fecha en formato YYYY-MM-DD.")
+            print("Formato de fecha no válido. Ingrese la fecha en formato DD-MM-YYYY.")

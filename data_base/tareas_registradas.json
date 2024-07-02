@@ -134,5 +134,23 @@
         "fecha_limite": "03-07-2024",
         "estado": "por hacer",
         "prioridad": "alta"
+    },
+    {
+        "id_tarea": 8,
+        "id_usuario": 4,
+        "titulo": "Artistica",
+        "descripcion": "Hacer la tarea de artistica",
+        "fecha_limite": "14-07-2024",
+        "estado": "por hacer",
+        "prioridad": "alta"
+    },
+    {
+        "id_tarea": 9,
+        "id_usuario": 3,
+        "titulo": "Espa\u00f1ol",
+        "descripcion": "Hacer un ensayo",
+        "fecha_limite": "12-09-2024",
+        "estado": "por hacer",
+        "prioridad": "media"
     }
 ]

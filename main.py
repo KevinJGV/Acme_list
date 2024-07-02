@@ -118,8 +118,6 @@ def op_menu_central():
             print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "║"+ Fore.WHITE +"                  ADIOS!              "+ Fore.CYAN +"║"))
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
             break
-        if op == 1:
-            print("hola")
         if op == 2:
             titulo=funciones.solo_texto("                                                    Titulo:")
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
@@ -153,6 +151,8 @@ def op_menu_central():
                 "prioridad": prioridad_tarea
             }
             print(cruds.crea_tarea(id_usuario, tarea))
+        if op == 4:
+            filters.menufiltros()
 while True:
     menu_principal()
     op = pedir_opcion()
@@ -212,7 +212,10 @@ while True:
             signup.crear_usuario(user)
             print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Bienvenido:          "+ Fore.CYAN +"║"))
             usuarios = funciones.valida_campos("nombre", nombre, datos, True)
-            id_usuario = usuarios["id"]
+            try:
+                id_usuario = usuarios["id"]
+            except Exception:
+                print()
             op_menu_central()
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
 
