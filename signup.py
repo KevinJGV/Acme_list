@@ -1,5 +1,6 @@
 import cruds
 import threading
+import funciones
 
 # Aquí va la direccion del archivo
 archivo = "data_base/informacion_usuarios.json"
@@ -13,7 +14,7 @@ def crear_usuario(user:dict):
 
     try:
 
-        id_usuario = generador_id(datos)
+        id_usuario = funciones.generador_id(datos)
 
         username = generar_username(user["nombre"], id_usuario)
 
