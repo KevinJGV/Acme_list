@@ -5,7 +5,7 @@
         "fecha_limite": "12/10/2024",
         "titulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "estado": "terminada",
+        "estado": "terminado",
         "prioridad": "baja",
         "subtareas":[]
     }
