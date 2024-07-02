@@ -193,8 +193,6 @@ def generador_id(datos):
         return id_nuevo
 
 # Imprime en pantalla las tareas que esten contenidas en la estructura json  diseñada para el programa, se puede usar facilmente con, por ejemplo, cruds.datos_registro
-
-
 def imprimir_tabla_diccionario_lista(json_a_visualizar):
     # Obtener encabezados (claves únicas) de la lista de diccionarios
     json_tamaño = len(json_a_visualizar)
@@ -317,7 +315,7 @@ def imprimir_tabla_diccionario_lista(json_a_visualizar):
     tabla_formateada += linea_pie
 
     # Imprimir la tabla
-    print(tabla_formateada)
+    print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + tabla_formateada))
 
 
 # Funcion auxiliar de imprimir_tabla_diccionario_lista() que realiza el proceso de estructuracion para el print final
@@ -343,46 +341,3 @@ def procesar_subtareas(subtareas, anchos_maximos):
 
         subtareas_formateadas += linea_subtarea + "\n"
     return subtareas_formateadas
-
-datos = [
-    {
-        "id_tarea": 2,
-        "id_usuario": 1,
-        "titulo": "Gestionar archivos",
-        "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/06/2024",
-        "estado": "terminada",
-        "prioridad": "alta",
-        "subtareas": [
-            {
-                "id_subtarea": 1,
-                "id_usuario": 1,
-                "titulo": "Menú Principal",
-                "descripcion": "hacer el menu principal",
-                "fecha_limite": "05/06/2024",
-                "estado": "terminada",
-                "prioridad": "media"
-            },
-            {
-                "id_subtarea": 2,
-                "id_usuario": 1,
-                "titulo": "Menú crud archivos",
-                "descripcion": "el menu de gestion de archivos",
-                "fecha_limite": "06/06/2024",
-                "estado": "terminada",
-                "prioridad": "alta"
-            },
-            {
-                "id_subtarea": 3,
-                "id_usuario": 1,
-                "titulo": "Interfaz",
-                "descripcion": "hacer la interfaz",
-                "fecha_limite": "10/06/2024",
-                "estado": "por hacer",
-                "prioridad": "baja"
-            }
-        ]
-    }
-]
-
-# imprimir_tabla_diccionario_lista(datos)

@@ -10,7 +10,7 @@ usuario = "data_base/informacion_usuarios.json"
 tareas_por_hacer = "data_base/tareas_registradas.json"
 
 datos = cruds.cargar_datos_json(usuario)
-datos_hacer = cruds.cargar_datos_json(tareas_por_hacer)
+tareas_registradas = cruds.cargar_datos_json(tareas_por_hacer)
 # Inicializar colorama
 init(autoreset=True)
 
@@ -129,8 +129,10 @@ while True:
                 "contraseña":contraseña
             }
             inicio = signin.iniciar_sesion(user)
-            if inicio: 
+            if inicio:
+
                 print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Bienvenido:          "+ Fore.CYAN +"║"))
+                funciones.imprimir_tabla_diccionario_lista(tareas_registradas)
                 menu_central()
             else:
                 print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           La contraseña es incorrecta.          "+ Fore.CYAN +"║"))
