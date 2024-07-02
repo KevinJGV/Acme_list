@@ -2,9 +2,9 @@
     {
         "id_tarea": 1,
         "id_usuario": 1,
-        "tiulo": "Tarea Inglés",
+        "titulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "12/10/2024",
+        "fecha_limite": "12/07/2024",
         "estado": "por hacer",
         "prioridad": "baja",
         "subtareas": []
@@ -12,36 +12,36 @@
     {
         "id_tarea": 2,
         "id_usuario": 1,
-        "tiulo": "Gestionar archivos",
+        "titulo": "Gestionar archivos",
         "descripcion": "hacer un programa para gestionar archivos",
         "fecha_limite": "12/06/2024",
-        "estado": "por hacer",
+        "estado": "terminada",
         "prioridad": "alta",
         "subtareas": [
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "tiulo": "Menú Principal",
+                "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "fecha_limite": "05/06/2024",
+                "estado": "terminada",
                 "prioridad": "media"
             },
             {
                 "id_subtarea": 2,
                 "id_usuario": 1,
-                "tiulo": "Menú Gestionar archivos",
-                "descripcion": "hacer el menu de gestion de archivos",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "titulo": "Menú crud archivos",
+                "descripcion": "el menu de gestion de archivos",
+                "fecha_limite": "06/06/2024",
+                "estado": "terminada",
                 "prioridad": "alta"
             },
             {
                 "id_subtarea": 3,
                 "id_usuario": 1,
-                "tiulo": "Interfaz",
+                "titulo": "Interfaz",
                 "descripcion": "hacer la interfaz",
-                "fecha_limite": "12/10/2024",
+                "fecha_limite": "10/06/2024",
                 "estado": "por hacer",
                 "prioridad": "baja"
             }
@@ -50,66 +50,67 @@
     {
         "id_tarea": 3,
         "id_usuario": 1,
-        "tiulo": "Tarea Matematicas",
+        "titulo": "Tarea Matematicas",
         "descripcion": "hacer la tarea de matematicas",
-        "fecha_limite": "24/12/2024",
+        "fecha_limite": "24/08/2024",
         "estado": "por hacer",
         "prioridad": "media",
-        "subtareas": []
+        "subtareas": [
+            {
+                "id_subtarea": 1,
+                "id_usuario": 1,
+                "titulo": "Consultar JulioProfe",
+                "descripcion": "la vieja confiable",
+                "fecha_limite": "01/08/2024",
+                "estado": "por hacer",
+                "prioridad": "media"
+            }
+        ]
     },
     {
         "id_tarea": 4,
         "id_usuario": 1,
-        "tiulo": "Gestionar archivos",
-        "descripcion": "hacer otro programa para gestionar archivos",
-        "fecha_limite": "09/07/2024",
-        "estado": "por hacer",
+        "titulo": "Gestionar archivos (otro)",
+        "descripcion": "otro programa para gestionar archivos",
+        "fecha_limite": "09/11/2024",
+        "estado": "cancelada",
         "prioridad": "alta",
         "subtareas": [
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "tiulo": "Menú Principal",
+                "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "fecha_limite": "01/11/2024",
+                "estado": "cancelada",
                 "prioridad": "media"
             },
             {
                 "id_subtarea": 2,
                 "id_usuario": 1,
-                "tiulo": "Menú Gestionar archivos",
-                "descripcion": "hacer el menu de gestion de archivos",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "titulo": "Menú crud a archivos",
+                "descripcion": "el menu de gestion de archivos",
+                "fecha_limite": "05/11/2024",
+                "estado": "cancelada",
                 "prioridad": "alta"
-            },
-            {
-                "id_subtarea": 3,
-                "id_usuario": 1,
-                "tiulo": "Interfaz",
-                "descripcion": "hacer la interfaz",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "baja"
             }
         ]
     },
     {
         "id_tarea": 5,
         "id_usuario": 1,
-        "tiulo": "Tarea Inglés",
-        "descripcion": "hacer la tarea de fisica",
+        "titulo": "Tarea de ser",
+        "descripcion": "hacer la tarea que no me gusta",
         "fecha_limite": "22/05/2024",
-        "estado": "por hacer",
+        "estado": "cancelada",
         "prioridad": "baja",
         "subtareas": []
     },
     {
         "id_tarea": 6,
         "id_usuario": 1,
-        "tiulo": "Gestionar archivos",
-        "descripcion": "hacer otro programa para gestionar archivos",
+        "titulo": "Gestionar red social",
+        "descripcion": "administrar pagina de ig",
         "fecha_limite": "01/06/2024",
         "estado": "por hacer",
         "prioridad": "media",
@@ -117,29 +118,11 @@
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "tiulo": "Menú Principal",
-                "descripcion": "hacer el menu principal",
+                "titulo": "Reels pendientes",
+                "descripcion": "robar contenido ajeno",
                 "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "estado": "terminada",
                 "prioridad": "media"
-            },
-            {
-                "id_subtarea": 2,
-                "id_usuario": 1,
-                "tiulo": "Menú Gestionar archivos",
-                "descripcion": "hacer el menu de gestion de archivos",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "alta"
-            },
-            {
-                "id_subtarea": 3,
-                "id_usuario": 1,
-                "tiulo": "Interfaz",
-                "descripcion": "hacer la interfaz",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "baja"
             }
         ]
     }

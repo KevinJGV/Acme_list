@@ -1,50 +1,41 @@
 [
     {
-        "id_tarea": 1,
+        "id_tarea": 4,
         "id_usuario": 1,
-        "tiulo": "Tarea Inglés",
-        "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "12/10/2024",
-        "estado": "por hacer",
-        "prioridad": "baja",
-        "subtareas": []
-    },
-    {
-        "id_tarea": 2,
-        "id_usuario": 1,
-        "tiulo": "Gestionar archivos",
-        "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/10/2024",
-        "estado": "por hacer",
+        "titulo": "Gestionar archivos (otro)",
+        "descripcion": "otro programa para gestionar archivos",
+        "fecha_limite": "09/11/2024",
+        "estado": "cancelada",
         "prioridad": "alta",
         "subtareas": [
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "tiulo": "Menú Principal",
+                "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "fecha_limite": "01/11/2024",
+                "estado": "cancelada",
                 "prioridad": "media"
             },
             {
                 "id_subtarea": 2,
                 "id_usuario": 1,
-                "tiulo": "Menú Gestionar archivos",
-                "descripcion": "hacer el menu de gestion de archivos",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
+                "titulo": "Menú crud a archivos",
+                "descripcion": "el menu de gestion de archivos",
+                "fecha_limite": "05/11/2024",
+                "estado": "cancelada",
                 "prioridad": "alta"
-            },
-            {
-                "id_subtarea": 3,
-                "id_usuario": 1,
-                "tiulo": "Interfaz",
-                "descripcion": "hacer la interfaz",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "baja"
             }
         ]
+    },
+    {
+        "id_tarea": 5,
+        "id_usuario": 1,
+        "titulo": "Tarea de ser",
+        "descripcion": "hacer la tarea que no me gusta",
+        "fecha_limite": "22/05/2024",
+        "estado": "cancelada",
+        "prioridad": "baja",
+        "subtareas": []
     }
 ]
