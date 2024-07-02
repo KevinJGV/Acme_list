@@ -38,7 +38,7 @@ def crea_tarea(id_usuario, tarea:dict):
     
     try:
 
-        id_tarea = funciones.generador_id(tarea)
+        id_tarea = funciones.generador_id(datos_registro)
 
         task_data = {
             "id_tarea": id_tarea,

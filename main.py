@@ -11,6 +11,10 @@ tareas_por_hacer = "data_base/tareas_registradas.json"
 
 datos = cruds.cargar_datos_json(usuario)
 tareas_registradas = cruds.cargar_datos_json(tareas_por_hacer)
+datos_hacer = cruds.cargar_datos_json(tareas_por_hacer)
+
+id_usuario = None
+
 # Inicializar colorama
 init(autoreset=True)
 
@@ -103,7 +107,52 @@ def pedir_opcion():
         print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
         print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           OPCION NO VALIDA!          "+ Fore.CYAN +"║"))
         print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-
+        
+def op_menu_central():
+    while True:
+        menu_central()
+        op = pedir_opcion()
+        if op == 5:
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "║"+ Fore.WHITE +"                  ADIOS!              "+ Fore.CYAN +"║"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+            break
+        if op == 1:
+            print("hola")
+        if op == 2:
+            titulo=funciones.solo_texto("                                                    Titulo:")
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
+            descripcion=funciones.campo_no_vacio("                                                    Descripcion:")
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
+            fechalimite=funciones.obtener_fecha("                                                    Fecha_limite:")
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion 1. Alto 2. Medio 3. Bajo:          "+ Fore.CYAN +"║"))
+            prioridad=funciones.solo_numeros("                                                    Prioridad:")
+            if prioridad == 1:
+                prioridad_tarea = "alta"
+            elif prioridad == 2:
+                prioridad_tarea = "media"
+            elif prioridad == 3:
+                prioridad_tarea = "baja"
+            else:
+                op_menu_central()
+            tarea= {
+                "titulo":titulo, 
+                "descripcion":descripcion,
+                "fecha_limite":fechalimite,
+                "estado":"por hacer",
+                "prioridad": prioridad_tarea
+            }
+            print(cruds.crea_tarea(id_usuario, tarea))
 while True:
     menu_principal()
     op = pedir_opcion()
@@ -134,6 +183,9 @@ while True:
                 print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Bienvenido:          "+ Fore.CYAN +"║"))
                 funciones.imprimir_tabla_diccionario_lista(tareas_registradas)
                 menu_central()
+                usuarios = funciones.valida_campos("correo", correo, datos, True)
+                id_usuario = usuarios["id"]
+                op_menu_central()
             else:
                 print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           La contraseña es incorrecta.          "+ Fore.CYAN +"║"))
                 menu_principal()
@@ -159,36 +211,8 @@ while True:
             }
             signup.crear_usuario(user)
             print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Bienvenido:          "+ Fore.CYAN +"║"))
-            print(menu_central())
+            usuarios = funciones.valida_campos("nombre", nombre, datos, True)
+            id_usuario = usuarios["id"]
+            op_menu_central()
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
 
-def op_menu_central():
-    while True:
-        menu_central()
-        op = pedir_opcion()
-        if op == 5:
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
-            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "║"+ Fore.WHITE +"                  ADIOS!              "+ Fore.CYAN +"║"))
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-            break
-        if op == 1:
-            print("hola")
-        if op == 2:
-            titulo=funciones.unico_nombre("                                                    Titulo:", datos)
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
-            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
-            descripcion=funciones.unico_nombre("                                                    Descripcion:", datos)
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
-            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
-            fechalimite=funciones.unico_nombre("                                                    Fecha_limite:", datos)
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
-            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
-            prioridad=funciones.unico_nombre("                                                    Prioridad:", datos)
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
-            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion 1. Alto 2. Medio 3. Bajo:          "+ Fore.CYAN +"║"))
-            

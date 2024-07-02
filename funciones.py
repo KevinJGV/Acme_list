@@ -1,4 +1,5 @@
 import getpass
+import datetime
 import re
 import threading
 import os
@@ -341,3 +342,67 @@ def procesar_subtareas(subtareas, anchos_maximos):
 
         subtareas_formateadas += linea_subtarea + "\n"
     return subtareas_formateadas
+
+datos = [
+    {
+        "id_tarea": 2,
+        "id_usuario": 1,
+        "titulo": "Gestionar archivos",
+        "descripcion": "hacer un programa para gestionar archivos",
+        "fecha_limite": "12/06/2024",
+        "estado": "terminada",
+        "prioridad": "alta",
+        "subtareas": [
+            {
+                "id_subtarea": 1,
+                "id_usuario": 1,
+                "titulo": "Menú Principal",
+                "descripcion": "hacer el menu principal",
+                "fecha_limite": "05/06/2024",
+                "estado": "terminada",
+                "prioridad": "media"
+            },
+            {
+                "id_subtarea": 2,
+                "id_usuario": 1,
+                "titulo": "Menú crud archivos",
+                "descripcion": "el menu de gestion de archivos",
+                "fecha_limite": "06/06/2024",
+                "estado": "terminada",
+                "prioridad": "alta"
+            },
+            {
+                "id_subtarea": 3,
+                "id_usuario": 1,
+                "titulo": "Interfaz",
+                "descripcion": "hacer la interfaz",
+                "fecha_limite": "10/06/2024",
+                "estado": "por hacer",
+                "prioridad": "baja"
+            }
+        ]
+    }
+]
+
+# imprimir_tabla_diccionario_lista(datos)
+
+def obtener_fecha(mensaje):
+  """
+  Obtiene una fecha del usuario en formato YYYY-MM-DD.
+
+  Args:
+    mensaje: Mensaje que se muestra al usuario para solicitar la fecha.
+
+  Returns:
+    Objeto datetime.date que representa la fecha ingresada.
+  """
+
+  while True:
+    try:
+      fecha_str = input(mensaje)
+      fecha = datetime.datetime.strptime(fecha_str, "%d-%m-%Y").date()
+      
+      fecha_final = datetime.datetime.strftime(fecha, "%d-%m-%Y")
+      return fecha_final
+    except ValueError:
+      print("Formato de fecha no válido. Ingrese la fecha en formato YYYY-MM-DD.")
