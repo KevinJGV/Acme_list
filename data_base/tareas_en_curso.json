@@ -1,49 +1,51 @@
 [
     {
-        "id_tarea": 3,
+        "id_tarea": 1,
         "id_usuario": 1,
-        "tiulo": "Tarea Inglés",
+        "titulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "12/10/2024",
+        "fecha_limite": "12/07/2024",
         "estado": "por hacer",
         "prioridad": "baja",
         "subtareas": []
     },
     {
-        "id_tarea": 4,
+        "id_tarea": 3,
         "id_usuario": 1,
-        "tiulo": "Gestionar archivos",
-        "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/10/2024",
+        "titulo": "Tarea Matematicas",
+        "descripcion": "hacer la tarea de matematicas",
+        "fecha_limite": "24/08/2024",
         "estado": "por hacer",
-        "prioridad": "alta",
+        "prioridad": "media",
         "subtareas": [
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "tiulo": "Menú Principal",
-                "descripcion": "hacer el menu principal",
-                "fecha_limite": "12/10/2024",
+                "titulo": "Consultar JulioProfe",
+                "descripcion": "la vieja confiable",
+                "fecha_limite": "01/08/2024",
                 "estado": "por hacer",
                 "prioridad": "media"
-            },
+            }
+        ]
+    },
+    {
+        "id_tarea": 6,
+        "id_usuario": 1,
+        "titulo": "Gestionar red social",
+        "descripcion": "administrar pagina de ig",
+        "fecha_limite": "01/06/2024",
+        "estado": "por hacer",
+        "prioridad": "media",
+        "subtareas": [
             {
-                "id_subtarea": 2,
+                "id_subtarea": 1,
                 "id_usuario": 1,
-                "tiulo": "Menú Gestionar archivos",
-                "descripcion": "hacer el menu de gestion de archivos",
+                "titulo": "Reels pendientes",
+                "descripcion": "robar contenido ajeno",
                 "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "alta"
-            },
-            {
-                "id_subtarea": 3,
-                "id_usuario": 1,
-                "tiulo": "Interfaz",
-                "descripcion": "hacer la interfaz",
-                "fecha_limite": "12/10/2024",
-                "estado": "por hacer",
-                "prioridad": "baja"
+                "estado": "terminada",
+                "prioridad": "media"
             }
         ]
     }
