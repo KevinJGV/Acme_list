@@ -3,6 +3,7 @@
         "id_tarea": 5,
         "id_usuario": 1,
         "fecha_limite": "12/10/2024",
+        "titulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
         "estado": "terminada",
         "prioridad": "baja",
