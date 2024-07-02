@@ -4,7 +4,7 @@
         "id_usuario": 1,
         "tiulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "07/07/2024",
+        "fecha_limite": "12/10/2024",
         "estado": "por hacer",
         "prioridad": "baja",
         "subtareas": []
@@ -14,7 +14,7 @@
         "id_usuario": 1,
         "tiulo": "Gestionar archivos",
         "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/10/2024",
+        "fecha_limite": "12/06/2024",
         "estado": "por hacer",
         "prioridad": "alta",
         "subtareas": [
@@ -50,19 +50,19 @@
     {
         "id_tarea": 3,
         "id_usuario": 1,
-        "tiulo": "Tarea Inglés",
-        "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "12/10/2024",
+        "tiulo": "Tarea Matematicas",
+        "descripcion": "hacer la tarea de matematicas",
+        "fecha_limite": "24/12/2024",
         "estado": "por hacer",
-        "prioridad": "baja",
+        "prioridad": "media",
         "subtareas": []
     },
     {
         "id_tarea": 4,
         "id_usuario": 1,
         "tiulo": "Gestionar archivos",
-        "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/10/2024",
+        "descripcion": "hacer otro programa para gestionar archivos",
+        "fecha_limite": "09/07/2024",
         "estado": "por hacer",
         "prioridad": "alta",
         "subtareas": [
@@ -98,10 +98,49 @@
     {
         "id_tarea": 5,
         "id_usuario": 1,
-        "fecha_limite": "12/10/2024",
-        "descripcion": "hacer la tarea de ingles",
-        "estado": "terminada",
+        "tiulo": "Tarea Inglés",
+        "descripcion": "hacer la tarea de fisica",
+        "fecha_limite": "22/05/2024",
+        "estado": "por hacer",
         "prioridad": "baja",
-        "subtareas":[]
+        "subtareas": []
+    },
+    {
+        "id_tarea": 6,
+        "id_usuario": 1,
+        "tiulo": "Gestionar archivos",
+        "descripcion": "hacer otro programa para gestionar archivos",
+        "fecha_limite": "01/06/2024",
+        "estado": "por hacer",
+        "prioridad": "media",
+        "subtareas": [
+            {
+                "id_subtarea": 1,
+                "id_usuario": 1,
+                "tiulo": "Menú Principal",
+                "descripcion": "hacer el menu principal",
+                "fecha_limite": "12/10/2024",
+                "estado": "por hacer",
+                "prioridad": "media"
+            },
+            {
+                "id_subtarea": 2,
+                "id_usuario": 1,
+                "tiulo": "Menú Gestionar archivos",
+                "descripcion": "hacer el menu de gestion de archivos",
+                "fecha_limite": "12/10/2024",
+                "estado": "por hacer",
+                "prioridad": "alta"
+            },
+            {
+                "id_subtarea": 3,
+                "id_usuario": 1,
+                "tiulo": "Interfaz",
+                "descripcion": "hacer la interfaz",
+                "fecha_limite": "12/10/2024",
+                "estado": "por hacer",
+                "prioridad": "baja"
+            }
+        ]
     }
 ]
