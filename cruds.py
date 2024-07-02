@@ -374,7 +374,7 @@ def estado(id_tarea, estado, tarea = True, id_subtarea = 0):
         
         else:
             return "Se ha generado un Error"
-           
+
     except Exception as e:
         print(f"Error al modificar el estado: {e}")
         return "Error al modificar el estado."
@@ -405,4 +405,39 @@ def terminartareas(id, tareas):
                 tareas[i] = subtareasfinalizadas(tareas[i])
             else:
                 tareas[i]["estado"] = "terminado"
+    return tareas
+
+
+
+# esta funcion sirve para indicar si una tarea tiene subtareas o no
+# y si tiene subtareas verificar si estan todas canceladas y poner la tarea en cancelada
+def subtareascanceladas(tarea):
+    if any(tarea["subtareas"]):
+        for i in tarea["subtareas"]:
+            if i["estado"] == "cancelada":
+                print("listo")
+            else:
+                print("hay subtareas que no se han cancelado")
+                return tarea
+        tarea["estado"] = "cancelada"
+        return tarea
+
+    else:
+        return tarea
+
+
+# sirve para cancelar las tareas
+def cancelartareas(tareas):
+    try:
+        id = int(input("ingresa la id de la tarea: "))
+    except Exception:
+        print("ingresa un numero")
+        return tareas
+
+    for i in range(len(tareas)):
+        if tareas[i]["id_tarea"] == id:
+            if any(tareas[i]["subtareas"]):
+                tareas[i] = subtareascanceladas(tareas[i])
+            else:
+                tareas[i]["estado"] = "cancelada"
     return tareas

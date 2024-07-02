@@ -292,8 +292,7 @@ def imprimir_tabla_diccionario_lista(json_a_visualizar):
                         valor = str(len(diccionario[encabezado]))
                         if len(diccionario["subtareas"]) > 0:
                             # Formatear texto de la línea divisoria
-                            linea_taras_vacias = f"| {
-                                'SUBTAREAS':^{longitud_tabla - 4}} |"
+                            linea_taras_vacias = f"| {'SUBTAREAS':^{longitud_tabla - 4}} |"
 
                             # Agregar línea divisoria a la tabla formateada
                             subtareas += linea_taras_vacias + "\n"
@@ -322,7 +321,7 @@ def imprimir_tabla_diccionario_lista(json_a_visualizar):
 # Funcion auxiliar de imprimir_tabla_diccionario_lista() que realiza el proceso de estructuracion para el print final
 def procesar_subtareas(subtareas, anchos_maximos):
     encabezados = ['id_subtarea', 'titulo', 'descripcion',
-                   'estado', 'prioridad', 'fecha_limite']
+                    'estado', 'prioridad', 'fecha_limite']
     subtareas_formateadas = ""
     for subtarea in subtareas:
         linea_subtarea = ""
@@ -334,16 +333,16 @@ def procesar_subtareas(subtareas, anchos_maximos):
             else:
                 valor_subtarea = str(subtarea[encabezado])
             if encabezado == "id_subtarea":
-                linea_subtarea += f"| {valor_subtarea:<{
-                    anchos_maximos["id_tarea"]}} |"
+                linea_subtarea += f"| {valor_subtarea:<{anchos_maximos['id_tarea']}} |"
             else:
-                linea_subtarea += f"| {valor_subtarea:<{
-                    anchos_maximos[encabezado]}} |"
+                linea_subtarea += f"| {valor_subtarea:<{anchos_maximos[encabezado]}} |"
 
         subtareas_formateadas += linea_subtarea + "\n"
     return subtareas_formateadas
 
-datos = [
+
+# ejemplo de la funcion de imprimir tabla diccionario lista
+""" datos = [
     {
         "id_tarea": 2,
         "id_usuario": 1,

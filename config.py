@@ -2,7 +2,6 @@ import json
 import threading
 import os
 from colorama import init, Fore, Back, Style
-from termcolor import colored
 
 # Inicializar colorama
 init(autoreset=True)
