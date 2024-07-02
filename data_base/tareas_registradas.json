@@ -53,7 +53,7 @@
         "tiulo": "Tarea Matematicas",
         "descripcion": "hacer la tarea de matematicas",
         "fecha_limite": "24/12/2024",
-        "estado": "terminada",
+        "estado": "por hacer",
         "prioridad": "media",
         "subtareas": []
     },
@@ -63,7 +63,7 @@
         "tiulo": "Gestionar archivos",
         "descripcion": "hacer otro programa para gestionar archivos",
         "fecha_limite": "09/07/2024",
-        "estado": "terminada",
+        "estado": "por hacer",
         "prioridad": "alta",
         "subtareas": [
             {
