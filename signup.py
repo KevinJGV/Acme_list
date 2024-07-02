@@ -54,21 +54,3 @@ def generar_username(nombre, id):
   username = iniciales_unidas + str(id)
 
   return username
-
-
-#Generar un nuevo id
-def generador_id(datos):
-
-  lock = threading.Lock()
-
-  with lock:
-    if not datos:
-      id = 1
-
-      return id
-
-    else:
-      anterior_id = datos[-1]
-      nuevoid = anterior_id["id"] + 1
-
-    return nuevoid

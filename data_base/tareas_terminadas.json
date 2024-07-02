@@ -2,39 +2,11 @@
     {
         "id_tarea": 2,
         "id_usuario": 1,
-        "titulo": "Gestionar archivos",
-        "descripcion": "hacer un programa para gestionar archivos",
-        "fecha_limite": "12/06/2024",
-        "estado": "terminada",
-        "prioridad": "alta",
-        "subtareas": [
-            {
-                "id_subtarea": 1,
-                "id_usuario": 1,
-                "titulo": "Menú Principal",
-                "descripcion": "hacer el menu principal",
-                "fecha_limite": "05/06/2024",
-                "estado": "terminada",
-                "prioridad": "media"
-            },
-            {
-                "id_subtarea": 2,
-                "id_usuario": 1,
-                "titulo": "Menú crud archivos",
-                "descripcion": "el menu de gestion de archivos",
-                "fecha_limite": "06/06/2024",
-                "estado": "terminada",
-                "prioridad": "alta"
-            },
-            {
-                "id_subtarea": 3,
-                "id_usuario": 1,
-                "titulo": "Interfaz",
-                "descripcion": "hacer la interfaz",
-                "fecha_limite": "10/06/2024",
-                "estado": "por hacer",
-                "prioridad": "baja"
-            }
-        ]
+        "fecha_limite": "12/10/2024",
+        "titulo": "Tarea Inglés",
+        "descripcion": "hacer la tarea de ingles",
+        "estado": "terminado",
+        "prioridad": "baja",
+        "subtareas":[]
     }
 ]
