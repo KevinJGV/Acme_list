@@ -48,7 +48,8 @@ def crea_tarea(id_usuario, tarea:dict):
 
         datos_regitro.append(task_data)
 
-        guardar_datos_json(datos_regitro, tarea_registro)
+        if len(tarea["tiulo"]) <= 25 and len(tarea["descripcion"]) <= 50:
+            guardar_datos_json(datos_regitro, tarea_registro)
 
         return f"Tarea creada con éxito."
     
@@ -143,13 +144,13 @@ def subtareasfinalizadas(tarea):
 # sirve para terminar las tareas
 def terminartareas(tareas):
     try:
-        id = int(input("ingresa la id de la tarea: "))
+        id_tarea = int(input("ingresa la id de la tarea: "))
     except Exception:
         print("ingresa un numero")
         return tareas
 
     for i in range(len(tareas)):
-        if tareas[i]["id_tarea"] == id:
+        if tareas[i]["id_tarea"] == id_tarea:
             if any(tareas[i]["subtareas"]):
                 tareas[i] = subtareasfinalizadas(tareas[i])
             else:
