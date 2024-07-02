@@ -1,6 +1,5 @@
-import main
+
 import cruds
-import filters
 import funciones
 
 # Aquí va la direccion del archivo

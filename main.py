@@ -1,6 +1,7 @@
 import signin
 import cruds
 import filters
+import funciones
 import os
 from colorama import init, Fore, Back, Style
 from termcolor import colored
@@ -111,11 +112,22 @@ while True:
             menu_Inicio_Sesion()
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
             print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
-            op = int(input("                                                    Correo:"))
+            correo=funciones.solo_correo("                                                    Correo:")
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
             print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Ingrese su opcion:          "+ Fore.CYAN +"║"))
-            op = int(input("                                                    Contraseña:"))
+            contraseña=funciones.contraseñavalida("                                                    Contraseña:")
+            user={
+                "correo":correo, 
+                "contraseña":contraseña
+            }
+            inicio = signin.iniciar_sesion(user)
+            if inicio: 
+                print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"          Bienvenido:          "+ Fore.CYAN +"║"))
+                menu_central()
+            else:
+                print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           La contraseña es incorrecta.          "+ Fore.CYAN +"║"))
+                menu_principal()
             print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
     if op == 2:
         while True:
