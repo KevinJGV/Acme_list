@@ -11,6 +11,8 @@ datos = cruds.cargar_datos_json(archivo)
 
 #Iniciar sesion
 def iniciar_sesion(user:dict):
+
+    print(user)
     
     inicia_sesion = funciones.valida_campos("correo", user["correo"], datos, True)
     

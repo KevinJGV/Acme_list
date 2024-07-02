@@ -180,24 +180,14 @@ def generador_id(datos):
 
         else:
             anterior_id = datos[-1]
-            clave_id = next((clave for clave in anterior_id.keys()
-                            if clave.startswith("id")), None)
-            if clave_id:
-                id_nuevo = anterior_id[clave_id] + 1
-            else:
-                raise KeyError("Ha existido un error")
-    else:
-      anterior_id = datos[-1]
-      clave_id = next((clave for clave in anterior_id.keys() if clave.startswith("id")), None)
-      if clave_id:
-        id_nuevo = anterior_id[clave_id] + 1
-      else:
-        print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
-        print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           Ha existido un error.          "+ Fore.CYAN +"║"))
-        print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
-        raise KeyError("Ha existido un error")
-
-            return id_nuevo
+            clave_id = next((clave for clave in anterior_id.keys() if clave.startswith("id")), None)
+        if clave_id:
+            id_nuevo = anterior_id[clave_id] + 1
+        else:
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╔══════════════════════════════════════╗"))
+            print("{:^160}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + " ║"+ Fore.WHITE +"           Ha existido un error.          "+ Fore.CYAN +"║"))
+            print("{:^150}".format(Back.BLACK + Fore.CYAN + Style.BRIGHT + "╚══════════════════════════════════════╝"))
+        return id_nuevo
 
 # Imprime en pantalla las tareas que esten contenidas en la estructura json  diseñada para el programa, se puede usar facilmente con, por ejemplo, cruds.datos_registro
 
@@ -392,4 +382,4 @@ datos = [
     }
 ]
 
-imprimir_tabla_diccionario_lista(datos)
+# imprimir_tabla_diccionario_lista(datos)
