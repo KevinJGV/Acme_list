@@ -1,4 +1,5 @@
 import getpass
+import datetime
 import re
 import threading
 import os
@@ -386,3 +387,24 @@ datos = [
 ]
 
 # imprimir_tabla_diccionario_lista(datos)
+
+def obtener_fecha(mensaje):
+  """
+  Obtiene una fecha del usuario en formato YYYY-MM-DD.
+
+  Args:
+    mensaje: Mensaje que se muestra al usuario para solicitar la fecha.
+
+  Returns:
+    Objeto datetime.date que representa la fecha ingresada.
+  """
+
+  while True:
+    try:
+      fecha_str = input(mensaje)
+      fecha = datetime.datetime.strptime(fecha_str, "%d-%m-%Y").date()
+      
+      fecha_final = datetime.datetime.strftime(fecha, "%d-%m-%Y")
+      return fecha_final
+    except ValueError:
+      print("Formato de fecha no válido. Ingrese la fecha en formato YYYY-MM-DD.")

@@ -2,7 +2,7 @@
     {
         "id_tarea": 1,
         "id_usuario": 1,
-        "titulo": "Tarea Inglés",
+        "titulo": "Tarea Ingl\u00e9s",
         "descripcion": "hacer la tarea de ingles",
         "fecha_limite": "12/07/2024",
         "estado": "por hacer",
@@ -21,7 +21,7 @@
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "titulo": "Menú Principal",
+                "titulo": "Men\u00fa Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "05/06/2024",
                 "estado": "terminado",
@@ -30,7 +30,7 @@
             {
                 "id_subtarea": 2,
                 "id_usuario": 1,
-                "titulo": "Menú crud archivos",
+                "titulo": "Men\u00fa crud archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "06/06/2024",
                 "estado": "terminado",
@@ -79,7 +79,7 @@
             {
                 "id_subtarea": 1,
                 "id_usuario": 1,
-                "titulo": "Menú Principal",
+                "titulo": "Men\u00fa Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "01/11/2024",
                 "estado": "cancelado",
@@ -88,7 +88,7 @@
             {
                 "id_subtarea": 2,
                 "id_usuario": 1,
-                "titulo": "Menú crud a archivos",
+                "titulo": "Men\u00fa crud a archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "05/11/2024",
                 "estado": "cancelado",
@@ -125,5 +125,14 @@
                 "prioridad": "media"
             }
         ]
+    },
+    {
+        "id_tarea": 7,
+        "id_usuario": 1,
+        "titulo": "tarea",
+        "descripcion": "tarea m",
+        "fecha_limite": "03-07-2024",
+        "estado": "por hacer",
+        "prioridad": "alta"
     }
 ]
