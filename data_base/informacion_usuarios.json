@@ -1,12 +1,14 @@
 [
     {
         "id": "1",
+        "usuario":"javier1",
         "correo": "javieracevedo@gmail.com",
         "contraseña": "123456789aA",
         "nombre": "javier"
     },
     {
         "id": "2",
+        "usuario":"alvaro2",
         "correo": "alvaro@gmail.com",
         "contraseña": "5678",
         "nombre": "alvaro"
