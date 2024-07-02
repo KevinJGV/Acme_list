@@ -3,21 +3,28 @@
         "id": 1,
         "usuario": "javier1",
         "correo": "javieracevedo@gmail.com",
-        "contraseña": "123456789aA",
+        "contrase\u00f1a": "123456789aA",
         "nombre": "javier"
     },
     {
         "id": 2,
         "usuario": "alvaro2",
         "correo": "alvaro@gmail.com",
-        "contraseña": "5678",
+        "contrase\u00f1a": "56782a141F23",
         "nombre": "alvaro"
     },
     {
         "id": 3,
         "usuario": "ma3",
         "correo": "mario@gmail.com",
-        "contraseña": "1234567890aA",
+        "contrase\u00f1a": "1234567890aA",
         "nombre": "mario"
+    },
+    {
+        "id": 4,
+        "usuario": "ig4",
+        "correo": "ignacio@gmail.com",
+        "contrase\u00f1a": "432435GtrF",
+        "nombre": "ignacio"
     }
 ]
