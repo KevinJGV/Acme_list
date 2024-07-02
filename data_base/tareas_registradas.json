@@ -4,7 +4,7 @@
         "id_usuario": 1,
         "tiulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "02/07/2024",
+        "fecha_limite": "12/10/2024",
         "estado": "por hacer",
         "prioridad": "baja",
         "subtareas": []
