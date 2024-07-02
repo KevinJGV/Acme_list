@@ -4,7 +4,7 @@
         "id_usuario": 1,
         "titulo": "Tarea Inglés",
         "descripcion": "hacer la tarea de ingles",
-        "fecha_limite": "12/07/2024",
+        "fecha_limite": "09/07/2024",
         "estado": "por hacer",
         "prioridad": "baja",
         "subtareas": []
@@ -15,7 +15,7 @@
         "titulo": "Gestionar archivos",
         "descripcion": "hacer un programa para gestionar archivos",
         "fecha_limite": "12/06/2024",
-        "estado": "terminado",
+        "estado": "terminada",
         "prioridad": "alta",
         "subtareas": [
             {
@@ -24,7 +24,7 @@
                 "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "05/06/2024",
-                "estado": "terminado",
+                "estado": "terminada",
                 "prioridad": "media"
             },
             {
@@ -33,7 +33,7 @@
                 "titulo": "Menú crud archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "06/06/2024",
-                "estado": "terminado",
+                "estado": "terminada",
                 "prioridad": "alta"
             },
             {
@@ -73,7 +73,7 @@
         "titulo": "Gestionar archivos (otro)",
         "descripcion": "otro programa para gestionar archivos",
         "fecha_limite": "09/11/2024",
-        "estado": "cancelado",
+        "estado": "cancelada",
         "prioridad": "alta",
         "subtareas": [
             {
@@ -82,7 +82,7 @@
                 "titulo": "Menú Principal",
                 "descripcion": "hacer el menu principal",
                 "fecha_limite": "01/11/2024",
-                "estado": "cancelado",
+                "estado": "cancelada",
                 "prioridad": "media"
             },
             {
@@ -91,7 +91,7 @@
                 "titulo": "Menú crud a archivos",
                 "descripcion": "el menu de gestion de archivos",
                 "fecha_limite": "05/11/2024",
-                "estado": "cancelado",
+                "estado": "cancelada",
                 "prioridad": "alta"
             }
         ]
@@ -102,7 +102,7 @@
         "titulo": "Tarea de ser",
         "descripcion": "hacer la tarea que no me gusta",
         "fecha_limite": "22/05/2024",
-        "estado": "cancelado",
+        "estado": "cancelada",
         "prioridad": "baja",
         "subtareas": []
     },
@@ -112,7 +112,7 @@
         "titulo": "Gestionar red social",
         "descripcion": "administrar pagina de ig",
         "fecha_limite": "01/06/2024",
-        "estado": "por hacer",
+        "estado": "terminada",
         "prioridad": "media",
         "subtareas": [
             {
@@ -121,7 +121,7 @@
                 "titulo": "Reels pendientes",
                 "descripcion": "robar contenido ajeno",
                 "fecha_limite": "12/10/2024",
-                "estado": "terminado",
+                "estado": "terminada",
                 "prioridad": "media"
             }
         ]
