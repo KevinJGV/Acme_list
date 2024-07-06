@@ -125,4 +125,4 @@ Unicamente Python
 * [Javier Eduardo Acevedo Noguera - JavierEAcevedoN](https://github.com/JavierEAcevedoN)
 * [Mario Felipe Parra Delgado - MarioFelipe19](https://github.com/MarioFelipe19)
 
-También puedes mirar la lista de todos los contribuyentes quíenes han participado en este proyecto.
+También puedes mirar la lista de todos los [contribuyentes](https://github.com/KevinJGV/Work-Project_SCRUM_GonzalezKevinVelandia/graphs/contributors) quíenes han participado en este proyecto.
