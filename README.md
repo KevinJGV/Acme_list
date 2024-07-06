@@ -15,7 +15,7 @@ Este proyecto tiene como objetivo presentar de manera satisfactoria un pequeño 
   - [Errores conocidos hasta la fecha ⚠](#errores-conocidos-hasta-la-fecha-)
     - [**Problema:** Fallas al instalar Colorama](#problema-fallas-al-instalar-colorama)
   - [Construido con 🛠️](#construido-con-️)
-  - [Autoría](#autoría)
+  - [Autores ✒️](#autores-️)
 
 ## Comenzando 🚀
 
@@ -54,7 +54,7 @@ Antes de ejecutar este proyecto, asegúrate de tener instaladas las siguientes d
 
 ### Python
 
-Este proyecto requiere Python 3.6 o superior. Puedes descargar Python desde [python.org](https://www.python.org/downloads/).
+Este proyecto requiere Python 3 o superior. Puedes descargar Python desde [python.org](https://www.python.org/downloads/).
 
 Para instalar Python en Linux, sigue los pasos detallados en la [documentación oficial de Python sobre la instalación en plataformas Unix](https://docs.python.org/3/using/unix.html).
 
@@ -118,9 +118,11 @@ where python
 
 Unicamente Python 
 
-## Autoría
+## Autores ✒️
 
 * [Kevin González - KevinJGV](https://github.com/KevinJGV)
 * [Alvaro Andres Martinez Alcina - alvaroMartinez13](https://github.com/alvaroMartinez13)
 * [Javier Eduardo Acevedo Noguera - JavierEAcevedoN](https://github.com/JavierEAcevedoN)
 * [Mario Felipe Parra Delgado - MarioFelipe19](https://github.com/MarioFelipe19)
+
+También puedes mirar la lista de todos los contribuyentes quíenes han participado en este proyecto.
